@@ -1,5 +1,5 @@
 #!/bin/bash
-#!/bin/bash
+
 # 设置要访问的域名
 domain="openai.com"
 
