@@ -35,7 +35,7 @@ select script_num in "Docker安装脚本" "acme申请脚本" "TikTok检测" "流
 do
   case $script_num in
     "Docker安装脚本")
-      run_script "https://iink.top/docker.sh"
+      run_script "https://raw.githubusercontent.com/wangyijin209/box.sh/master/docker.sh"
       break
       ;;
     "acme申请脚本")
