@@ -39,7 +39,7 @@ do
       break
       ;;
     "acme申请脚本")
-      run_script "https://iink.top/acme-yj.sh"
+      run_script "https://raw.githubusercontent.com/wangyijin209/box.sh/master/acme.sh"
       break
       ;;
     "TikTok检测")
@@ -51,7 +51,7 @@ do
       break
       ;;
     "ChatGPT检测")
-      run_script "https://iink.top/openai-chat.sh"
+      run_script "https://raw.githubusercontent.com/wangyijin209/box.sh/master/chatgpt.sh"
       break
       ;;
     "x-ui原版脚本")
