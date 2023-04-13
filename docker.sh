@@ -1,4 +1,5 @@
 #!/bin/bash
+#!/bin/bash
 if [ "$(grep -Eo 'ubuntu' /etc/*-release)" = "ubuntu" ]; then
   echo "检测到发行版为Ubuntu，正在使用APT安装Docker..."
   apt update
