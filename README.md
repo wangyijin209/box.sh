@@ -5,7 +5,7 @@ Usage：
 ``` bash
 bash <(curl -sL https://iink.top/box.sh)
 # or
-bash <(curl -sL https://raw.githubusercontent.com/wangyijin209/box.sh/master/docker.sh)
+bash <(curl -sL https://raw.githubusercontent.com/wangyijin209/box.sh/master/box.sh)
 ```  
 **功能包括**  
 -Docker安装脚本  
