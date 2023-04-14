@@ -7,7 +7,7 @@ bash <(curl -sL https://iink.top/box.sh)
 # or
 bash <(curl -sL https://raw.githubusercontent.com/wangyijin209/box.sh/master/docker.sh)
 ```  
-功能包括  
+**功能包括**  
 -Docker安装脚本  
 -acme申请脚本  
 -TikTok检测  
