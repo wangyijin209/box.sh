@@ -87,4 +87,4 @@ do
   esac
 done
 
-echo "感谢使用本脚本！"
+echo "感谢使用本脚本！" | lolcat
