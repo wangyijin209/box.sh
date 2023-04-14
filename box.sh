@@ -31,7 +31,7 @@ function run_script() {
 }
 
 echo "请选择要运行的脚本（输入数字，输入 q 退出）："
-select script_num in "Docker安装脚本" "acme申请脚本" "TikTok检测" "流媒体解锁检测" "ChatGPT检测" "x-ui原版脚本" "甬哥x-ui脚本" "swap" "ipv4/6优先级调整一键脚本" "LNMP(请使用screen)" "退出"
+select script_num in "Docker安装脚本" "acme申请脚本" "TikTok检测" "流媒体解锁检测" "ChatGPT检测" "x-ui原版脚本" "甬哥x-ui脚本" "swap" "ipv4/6优先级调整一键脚本" "LNMP(请使用screen)" "换源" "退出"
 do
   case $script_num in
     "Docker安装脚本")
@@ -72,6 +72,10 @@ do
       ;;
     "LNMP(请使用screen)")
       run_script "https://raw.githubusercontent.com/wangyijin209/box.sh/master/lnmp.org.sh"
+      break
+      ;;
+    "换源")
+      run_script "https://raw.githubusercontent.com/wangyijin209/box.sh/master/changesource-action.sh"
       break
       ;;
     "退出")
