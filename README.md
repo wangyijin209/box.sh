@@ -10,7 +10,7 @@ bash <(curl -sL https://raw.githubusercontent.com/wangyijin209/box.sh/master/box
 # gitlab
 bash <(curl -sL https://iink.top/box-gitlab.sh)
 # or
-bash <(curl -sL https://gitlab.com/wangyijin209/box-sh/raw/master/box.sh)
+bash <(curl -sL https://gitlab.com/wangyijin209/box/raw/master/box.sh)
 ```  
 **功能包括**  
 -Docker安装脚本  
