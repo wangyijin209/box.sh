@@ -19,5 +19,6 @@ bash <(curl -sL https://raw.githubusercontent.com/wangyijin209/box.sh/master/doc
 -甬哥x-ui脚本
 -swap
 -ipv4/6优先级调整一键脚本
--LNMP（无人值守）
+-LNMP
 -换源
+-
