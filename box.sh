@@ -1,6 +1,6 @@
 #!/bin/bash
 if [ "$EUID" -ne 0 ]
-  then echo "请使用root用户运行"
+  then echo "请使用root用户运行!"
   exit
 fi
 colors=("\033[0m" "\033[31m" "\033[32m" "\033[33m" "\033[34m" "\033[35m" "\033[36m" "\033[37m")
@@ -17,16 +17,16 @@ echo -e "${color}Github: https://github.com/wangyijin209\033[0m"
 echo "======================================="
 
 function run_script() {
-  # 下载脚本
+
   curl -O $1
   
-  # 赋予脚本执行权限
+
   chmod +x $(basename $1)
-  
-  # 运行脚本
+
+
   ./$(basename $1)
   
-  # 删除脚本
+
   rm $(basename $1)
 }
 
