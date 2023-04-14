@@ -17,15 +17,15 @@ if [[ -f "$cert_path" ]]; then
   fi
 fi
 
-# 创建目录
+
 mkdir -p /root/acme-yj
 
-# 输出机器的CPU、IP、虚拟化信息
+
 echo "CPU 信息：$(lscpu | grep 'Model name')"
 echo "IP 地址：$(hostname -I)"
 echo "虚拟化信息：$(systemd-detect-virt)"
 
-# 提示用户选择申请模式
+
 echo "请选择申请模式："
 echo "1. 直接 80 端口申请模式"
 echo "2. Cloudflare DNS API 模式"
@@ -46,7 +46,7 @@ else
   exit 1
 fi
 
-# 输出证书储存信息
+
 echo "证书储存路径：/root/acme-yj"
 echo "证书文件名：/root/acme-yj/cert.pem"
 echo "私钥文件名：/root/acme-yj/key.pem"
