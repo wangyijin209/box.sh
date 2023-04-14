@@ -1,15 +1,14 @@
 #!/bin/bash
 
-# 设置要访问的域名
 domain="openai.com"
 
-# 获取当前主机的 IP 地址
+
 ip=$(curl -s https://checkip.amazonaws.com)
 
-# 尝试访问 *.openai.com，并获取响应状态码
-status=$(curl -o /dev/null --silent --head --write-out '%{http_code}\n' "https://www.${domain}")
 
-# 如果状态码为 200，则说明能够访问 *.openai.com
+status=$(curl -o /dev/null --silent --head --write-out '%{http_code}\n' "https://chat.${domain}")
+
+# 如果状态码为 200，则说明能够访问 chat.openai.com
 if [[ "$status" -eq 200 ]]; then
   echo "能够访问 *ChatGPT"
 else
