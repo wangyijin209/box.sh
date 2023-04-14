@@ -7,7 +7,7 @@ Usage：
 bash <(curl -sL https://iink.top/box.sh)
 # or
 bash <(curl -sL https://raw.githubusercontent.com/wangyijin209/box.sh/master/box.sh)
-# gitlab
+# 如果国内网络无法使用github，可以使用以下命令
 bash <(curl -sL https://iink.top/box-gitlab.sh)
 # or
 bash <(curl -sL https://gitlab.com/wangyijin209/box/raw/master/box.sh)
