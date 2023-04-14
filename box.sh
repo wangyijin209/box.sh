@@ -13,7 +13,7 @@ echo "==========================================================================
 echo ""
 echo "======================================="
 echo -e "${color}脚本为原创或收录\033[0m"
-echo -e "${color}Github: https://github.com/wangyijin209\033[0m"
+echo "Github: https://github.com/wangyijin209 | lolcat"
 echo "======================================="
 
 function run_script() {
