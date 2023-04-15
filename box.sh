@@ -31,7 +31,7 @@ function run_script() {
 }
 
 echo "请选择要运行的脚本（输入数字，输入 q 退出）："
-select script_num in "Docker安装脚本" "acme申请脚本" "TikTok检测" "流媒体解锁检测" "ChatGPT检测" "x-ui原版脚本" "甬哥x-ui脚本" "swap" "ipv4/6优先级调整一键脚本" "LNMP(请使用screen)" "换源" "退出"
+select script_num in "Docker安装脚本" "acme申请脚本" "TikTok检测" "流媒体解锁检测" "ChatGPT检测" "x-ui原版脚本" "甬哥x-ui脚本" "甬哥warp脚本" "swap" "ipv4/6优先级调整一键脚本" "LNMP(请使用screen)" "换源" "退出"
 do
   case $script_num in
     "Docker安装脚本")
@@ -59,7 +59,11 @@ do
       break
       ;;
     "甬哥x-ui脚本")
-      run_script "https://iink.top/x-ui-yg.sh"
+      run_script "https://gitlab.com/rwkgyg/x-ui-yg/raw/main/install.sh"
+      break
+      ;;
+    "甬哥warp脚本")
+      run_script "https://gitlab.com/rwkgyg/CFwarp/raw/main/CFwarp.sh"
       break
       ;;
     "swap")
