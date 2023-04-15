@@ -20,7 +20,7 @@ bash <(curl -sL https://gitlab.com/wangyijin209/box/raw/master/box.sh)
 -ChatGPT检测  
 -x-ui原版脚本  
 -甬哥x-ui脚本 
--甬哥warp脚本
+-甬哥warp脚本  
 -swap  
 -ipv4/6优先级调整一键脚本  
 -LNMP  
