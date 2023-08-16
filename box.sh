@@ -82,6 +82,10 @@ do
       run_script "https://raw.githubusercontent.com/wangyijin209/box.sh/master/changesource-action.sh"
       break
       ;;
+    "Bench")
+      run_script "https://raw.githubusercontent.com/wangyijin209/box.sh/master/bench.sh"
+      break
+      ;;
     "退出")
       break
       ;;
