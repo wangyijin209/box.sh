@@ -11,16 +11,21 @@ bash <(curl -sL https://raw.githubusercontent.com/wangyijin209/box.sh/master/box
 bash <(curl -sL https://iink.top/box-gitlab.sh)
 # or
 bash <(curl -sL https://gitlab.com/wangyijin209/box/raw/master/box.sh)
-```  
+```
 **功能包括**  
 -Docker安装脚本  
 -acme申请脚本  
 -TikTok检测  
--流媒体解锁检测  
--ChatGPT检测  
+-流媒体解锁检测
+-ChatGPT检测
+-FranzKafkaYu x-ui脚本呢  
 -x-ui原版脚本  
 -甬哥x-ui脚本  
 -甬哥warp脚本  
+-fscarmen Sing-box 全家桶  
+-fscarmen ArgoX 全家桶  
 -swap  
 -ipv4/6优先级调整一键脚本  
 -LNMP  
+-换源  
+-Bench  
