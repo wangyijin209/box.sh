@@ -51,7 +51,12 @@ do
       break
       ;;
     "ChatGPT检测")
-      run_script "https://raw.githubusercontent.com/wangyijin209/box.sh/master/chatgpt.sh"
+      run_script "https://raw.githubusercontent.com/missuo/OpenAI-Checker/main/openai.sh"
+      break
+      ;;
+
+    "FranzKafkaYu x-ui")
+      run_script "https://raw.githubusercontent.com/FranzKafkaYu/x-ui/master/install.sh"
       break
       ;;
     "x-ui原版脚本")
@@ -66,6 +71,14 @@ do
       run_script "https://gitlab.com/rwkgyg/CFwarp/raw/main/CFwarp.sh"
       break
       ;;
+    "fscarmen Sing-box 全家桶")
+      run_script "https://raw.githubusercontent.com/fscarmen/sing-box/main/sing-box.sh"
+      break
+      ;;
+    "fscarmen ArgoX")
+      run_script "https://raw.githubusercontent.com/fscarmen/argox/main/argox.sh"
+      break
+      ;;      
     "swap")
       run_script "https://raw.githubusercontent.com/BlueSkyXN/ChangeSource/master/swap.sh"
       break
