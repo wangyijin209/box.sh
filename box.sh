@@ -54,8 +54,7 @@ do
       run_script "https://raw.githubusercontent.com/missuo/OpenAI-Checker/main/openai.sh"
       break
       ;;
-
-    "FranzKafkaYu x-ui")
+    "FranzKafkaYu x-ui脚本")
       run_script "https://raw.githubusercontent.com/FranzKafkaYu/x-ui/master/install.sh"
       break
       ;;
