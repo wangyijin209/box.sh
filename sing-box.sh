@@ -158,7 +158,7 @@ output_client(){
     echo -e "${GREEN}客户端链接如下：${RESET}"
     echo -e "${YELLOW}vless://$UUID@$public_ip:$port?encryption=none&flow=xtls-rprx-vision&security=reality&sni=addons.mozilla.org&fp=chrome&pbk=$public_key&type=tcp&headerType=none#$tag
 ${RESET}"
-    echo "vless://$UUID@$public_ip:$port?encryption=none&flow=xtls-rprx-vision&security=reality&sni=addons.mozilla.org&fp=chrome&pbk=$public_key&type=tcp&headerType=none#$tag" > /etc/sing-box/.info
+    echo "vless://$UUID@$public_ip  :$port?encryption=none&flow=xtls-rprx-vision&security=reality&sni=addons.mozilla.org&fp=chrome&pbk=$public_key&type=tcp&headerType=none#$tag" > /etc/sing-box/.info
 }
 
 # 用户输入'3'输出的客户端链接
@@ -168,6 +168,7 @@ output_client2(){
 
 # 安装 sing-box 主函数
 sing-box() {    
+    get_ip
     install_sing_box
     write_sing_box_service
     input_port
