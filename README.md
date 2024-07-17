@@ -17,9 +17,9 @@ bash <(curl -sL https://gitlab.com/wangyijin209/box/raw/master/box.sh)
 -Docker安装脚本  
 -acme申请脚本  
 -TikTok检测  
--流媒体解锁检测
--ChatGPT检测
--FranzKafkaYu x-ui脚本呢  
+-流媒体解锁检测  
+-ChatGPT检测  
+-FranzKafkaYu x-ui脚本    
 -x-ui原版脚本  
 -甬哥x-ui脚本  
 -甬哥warp脚本  
