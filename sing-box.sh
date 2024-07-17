@@ -6,16 +6,6 @@ GREEN='\033[0;32m'
 YELLOW='\033[0;33m'
 RESET='\033[0m' # 恢复终端默认颜色
 
-# 根据发行版运行相应的安装脚本
-
-
-install_sing_box() {
-    echo -e "${RED}目前仅支持Debian系 ${RESET}"
-    bash <(curl -fsSL https://sing-box.app/deb-install.sh)
-    apt install uuid-runtime -y
-    echo -e "${GREEN}即将进行Reality-tcp的搭建 ${RESET}"
-}
-
 # 获取IP
 get_ip(){
     public_ip=$(curl -s https://api.ipify.org)
@@ -26,6 +16,14 @@ get_ip(){
         exit 1
     fi
     echo -e "${GREEN}公网IP地址是: $public_ip${RESET}"
+}
+
+# 安装sing-box
+install_sing_box() {
+    echo -e "${RED}目前仅支持Debian系 ${RESET}"
+    bash <(curl -fsSL https://sing-box.app/deb-install.sh)
+    apt install uuid-runtime -y
+    echo -e "${GREEN}即将进行Reality-tcp的搭建 ${RESET}"
 }
 
 # 写入sing-box.service
@@ -158,7 +156,7 @@ output_client(){
     echo -e "${GREEN}客户端链接如下：${RESET}"
     echo -e "${YELLOW}vless://$UUID@$public_ip:$port?encryption=none&flow=xtls-rprx-vision&security=reality&sni=addons.mozilla.org&fp=chrome&pbk=$public_key&type=tcp&headerType=none#$tag
 ${RESET}"
-    echo "vless://$UUID@$public_ip  :$port?encryption=none&flow=xtls-rprx-vision&security=reality&sni=addons.mozilla.org&fp=chrome&pbk=$public_key&type=tcp&headerType=none#$tag" > /etc/sing-box/.info
+    echo "vless://$UUID@$public_ip:$port?encryption=none&flow=xtls-rprx-vision&security=reality&sni=addons.mozilla.org&fp=chrome&pbk=$public_key&type=tcp&headerType=none#$tag" > /etc/sing-box/.info
 }
 
 # 用户输入'3'输出的客户端链接
@@ -168,8 +166,8 @@ output_client2(){
 
 # 安装 sing-box 主函数
 sing-box() {    
-    get_ip
     install_sing_box
+    get_ip
     write_sing_box_service
     input_port
     input_tag
