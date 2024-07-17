@@ -6,44 +6,14 @@ GREEN='\033[0;32m'
 YELLOW='\033[0;33m'
 RESET='\033[0m' # 恢复终端默认颜色
 
-# 检测Linux发行版
-detect_linux_distribution() {
-    if [ -f /etc/os-release ]; then
-        . /etc/os-release
-        OS=$ID
-    elif [ -f /etc/lsb-release ]; then
-        . /etc/lsb-release
-        OS=$DISTRIB_ID
-    elif [ -f /etc/debian_version ]; then
-        OS=debian
-    elif [ -f /etc/alpine-release ]; then
-        OS=alpine
-    else
-        OS=$(uname -s)
-    fi
-    echo $OS
-}
-
 # 根据发行版运行相应的安装脚本
+
+
 install_sing_box() {
-    case $1 in
-        debian|ubuntu|linuxmint|elementary|pop|zorin|kali)
-            echo -e "${GREEN}检测到基于Debian的发行版: ${RESET}${RED}$1${RESET}"
-            bash <(curl -fsSL https://sing-box.app/deb-install.sh)
-            apt install uuid-runtime -y
-            echo -e "${GREEN}即将进行Reality-tcp的搭建 ${RESET}${RED}$1${RESET}"
-            ;;
-        alpine)
-            echo -e "${YELLOW}检测到Alpine Linux${RESET}"
-            bash <(curl -fsSL https://sing-box.app/arch-install.sh)
-            apk add util-linux
-            echo -e "${GREEN}即将进行Reality-tcp的搭建 ${RESET}${RED}$1${RESET}"
-            ;;
-        *)
-            echo -e "${RED}不支持的Linux发行版: $1${RESET}"
-            exit 1
-            ;;
-    esac
+    echo -e "${RED} 目前仅支持Debian系 ${RESET}"
+    bash <(curl -fsSL https://sing-box.app/deb-install.sh)
+    apt install uuid-runtime -y
+    echo -e "${GREEN}即将进行Reality-tcp的搭建 ${RESET}"
 }
 
 # 写入sing-box.service
