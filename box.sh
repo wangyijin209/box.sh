@@ -31,9 +31,13 @@ function run_script() {
 }
 
 echo "请选择要运行的脚本（输入数字，输入 q 退出）："
-select script_num in "Docker安装脚本" "acme申请脚本" "TikTok检测" "流媒体解锁检测" "ChatGPT检测" "FranzKafkaYu x-ui脚本" "x-ui原版脚本" "甬哥x-ui脚本" "甬哥warp脚本" "fscarmen Sing-box 全家桶" "fscarmen ArgoX脚本" "swap" "ipv4/6优先级调整一键脚本" "LNMP(请使用screen)" "换源" "Bench" "退出"
+select script_num in "sing-box脚本" "Docker安装脚本" "acme申请脚本" "TikTok检测" "流媒体解锁检测" "ChatGPT检测" "FranzKafkaYu x-ui脚本" "x-ui原版脚本" "甬哥x-ui脚本" "甬哥warp脚本" "fscarmen Sing-box 全家桶" "fscarmen ArgoX脚本" "swap" "ipv4/6优先级调整一键脚本" "LNMP(请使用screen)" "换源" "Bench" "退出"
 do
   case $script_num in
+    "sing-box脚本")
+      run_script "https://raw.githubusercontent.com/wangyijin209/box.sh/master/sing-box.sh"
+      break
+      ;;
     "Docker安装脚本")
       run_script "https://raw.githubusercontent.com/wangyijin209/box.sh/master/docker.sh"
       break
