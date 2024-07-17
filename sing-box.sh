@@ -146,6 +146,12 @@ output_client(){
     echo -e "${GREEN}客户端链接如下：${RESET}"
     echo -e "${YELLOW}vless://$UUID@$IP:$port?encryption=none&flow=xtls-rprx-vision&security=reality&sni=addons.mozilla.org&fp=chrome&pbk=$public_key&type=tcp&headerType=none#$tag
 ${RESET}"
+    echo "vless://$UUID@$IP:$port?encryption=none&flow=xtls-rprx-vision&security=reality&sni=addons.mozilla.org&fp=chrome&pbk=$public_key&type=tcp&headerType=none#$tag" > /etc/sing-box/.info
+}
+
+# 用户输入'3'输出的客户端链接
+output_client2(){
+    cat /etc/sing-box/.info
 }
 
 # 安装 sing-box 主函数
@@ -193,7 +199,7 @@ case $choice in
         uninstall_sing-box
         ;;
     3)
-        output_client
+        output_client2
         ;;
     *)
         echo -e "${RED}无效的选择，请输入1或2.${RESET}"
