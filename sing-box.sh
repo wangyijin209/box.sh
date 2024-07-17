@@ -15,7 +15,7 @@ get_ip(){
         echo -e "${RED}无法获取公网IP地址。${RESET}"
         exit 1
     fi
-    echo -e "${GREEN}公网IP地址是: $public_ip${RESET}"
+    echo -e "${GREEN}你的公网IP地址是: $public_ip${RESET}"
 }
 
 # 安装sing-box
@@ -166,8 +166,8 @@ output_client2(){
 
 # 安装 sing-box 主函数
 sing-box() {    
-    install_sing_box
     get_ip
+    install_sing_box
     write_sing_box_service
     input_port
     input_tag
