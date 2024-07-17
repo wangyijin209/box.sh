@@ -13,7 +13,7 @@ bash <(curl -sL https://iink.top/box-gitlab.sh)
 bash <(curl -sL https://gitlab.com/wangyijin209/box/raw/master/box.sh)
 ```
 **功能包括**  
--sing-box脚本
+-sing-box脚本 
 -Docker安装脚本  
 -acme申请脚本  
 -TikTok检测  
