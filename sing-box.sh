@@ -25,7 +25,7 @@ get_ip(){
         echo -e "${RED}无法获取公网IP地址。${RESET}"
         exit 1
     fi
-
+    echo -e "${GREEN}公网IP地址是: $public_ip${RESET}"
 }
 
 # 写入sing-box.service
