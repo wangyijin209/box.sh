@@ -150,8 +150,7 @@ ${RESET}"
 
 # 安装 sing-box 主函数
 sing-box() {    
-    OS=$(detect_linux_distribution)
-    install_sing_box $OS
+    install_sing_box
     write_sing_box_service
     input_port
     input_tag
