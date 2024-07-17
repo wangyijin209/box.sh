@@ -182,7 +182,8 @@ uninstall_sing-box(){
 echo "请选择操作："
 echo -e "${YELLOW}1. 安装 sing-box${RESET}"
 echo -e "${YELLOW}2. 卸载 sing-box${RESET}"
-read -p $'\033[0;33m请输入1或2: \033[0m' choice
+echo -e "${YELLOW}3. 查看节点链接${RESET}"
+read -p $'\033[0;33m请输入数字以选择: \033[0m' choice
 
 case $choice in
     1)
@@ -190,6 +191,9 @@ case $choice in
         ;;
     2)
         uninstall_sing-box
+        ;;
+    3)
+        output_client
         ;;
     *)
         echo -e "${RED}无效的选择，请输入1或2.${RESET}"
