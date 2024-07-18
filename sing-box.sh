@@ -35,8 +35,8 @@ get_latest_version(){
     # 从响应中解析版本号
     version=$(echo $response | grep -oP '"tag_name": "\K(.*?)(?=")')
     version_later="${version#v}" 
-    URL="https://github.com/SagerNet/sing-box/releases/download/$version/sing-box_$version_later_linux_amd64.deb"
-    FILE_NAME="sing-box_$version_later_linux_amd64.deb"
+    URL="https://github.com/SagerNet/sing-box/releases/download/$version/sing-box_${version_later}_linux_amd64.deb"
+    FILE_NAME="sing-box_${version_later}_linux_amd64.deb"
     
 }
 
