@@ -18,17 +18,66 @@ get_ip(){
     echo -e "${GREEN}你的公网IP地址是: $public_ip${RESET}"
 }
 
-# 安装sing-box
+# 查找 sing-box 最新版本
+get_latest_version(){
+    # GitHub API URL for the latest release of sing-box
+    API_URL="https://api.github.com/repos/SagerNet/sing-box/releases/latest"
+
+    # 获取最新版本的发布信息
+    response=$(curl -s $API_URL)
+
+    # 检查响应是否为空
+    if [ -z "$response" ]; then
+        echo -e "${RED}无法获取最新版本的发布信息${RESET}"
+        exit 1
+    fi
+
+    # 从响应中解析版本号
+    version=$(echo $response | grep -oP '"tag_name": "\K(.*?)(?=")')
+    version_later="${version#v}" 
+    URL="https://github.com/SagerNet/sing-box/releases/download/$version/sing-box_$version_later_linux_amd64.deb"
+    FILE_NAME="sing-box_$version_later_linux_amd64.deb"
+    
+}
+
+# 安装 sing-box
 install_sing_box() {
     echo -e "${RED}目前仅支持Debian系 ${RESET}"
-    bash <(curl -fsSL https://sing-box.app/deb-install.sh)
     apt install uuid-runtime -y
     echo -e "${GREEN}即将进行Reality-tcp的搭建 ${RESET}"
+
+    # 使用 curl 下载文件
+    echo "正在下载 ${FILE_NAME}..."
+    curl -L -o $FILE_NAME $URL
+
+    # 检查下载是否成功
+    if [ $? -eq 0 ]; then
+        echo "下载成功: ${FILE_NAME}"
+    else
+        echo "下载失败"
+        exit 1
+    fi
+
+    # 解压 deb 文件
+    EXTRACT_DIR="sing-box_extracted"
+    mkdir -p $EXTRACT_DIR
+    dpkg-deb -x $FILE_NAME $EXTRACT_DIR
+    # 检查解压是否成功
+    if [ $? -eq 0 ]; then
+        echo "解压成功: ${EXTRACT_DIR}"
+    else
+        echo "解压失败"
+        exit 1
+    fi
+    # 将二进制可执行文件移动到/etc
+    mkdir -p /etc/sing-box
+    mv $EXTRACT_DIR/usr/bin/sing-box /etc/sing-box
+    rm $EXTRACT_DIR && rm $FILE_NAME
 }
 
 # 写入sing-box.service
 write_sing_box_service() {
-	cat <<EOF > /lib/systemd/system/sing-box.service
+	cat <<EOF > /etc/systemd/system/sing-box.service
 [Unit]
 Description=sing-box service
 Documentation=https://sing-box.sagernet.org
@@ -40,7 +89,7 @@ Type=simple
 NoNewPrivileges=yes
 TimeoutStartSec=0
 WorkingDirectory=/etc/sing-box
-ExecStart=/usr/bin/sing-box run -C /etc/sing-box/conf/
+ExecStart=sing-box run -C /etc/sing-box/conf/
 ExecReload=/bin/kill -HUP $MAINPID
 Restart=on-failure
 RestartSec=10
@@ -80,7 +129,7 @@ generate_uuid(){
 
 # 生成Reality公钥和私钥
 generate_key(){
-    output=$(/usr/bin/sing-box generate reality-keypair)
+    output=$(/etc/sing-box/sing-box generate reality-keypair)
     private_key=$(echo "$output" | grep -oP '(?<=PrivateKey: ).*')
     public_key=$(echo "$output" | grep -oP '(?<=PublicKey: ).*')
 
@@ -167,6 +216,7 @@ output_client2(){
 # 安装 sing-box 主函数
 sing-box() {    
     get_ip
+    get_latest_version
     install_sing_box
     write_sing_box_service
     input_port
@@ -185,7 +235,7 @@ uninstall_sing-box(){
     systemctl disable sing-box
 
     # 删除systemd服务文件
-    rm /lib/systemd/system/sing-box.service
+    rm /etc/systemd/system/sing-box.service
 
     # 重新加载systemd服务
     systemctl daemon-reload
