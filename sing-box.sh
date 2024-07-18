@@ -72,7 +72,7 @@ install_sing_box() {
     # 将二进制可执行文件移动到/etc
     mkdir -p /etc/sing-box
     mv $EXTRACT_DIR/usr/bin/sing-box /etc/sing-box
-    rm $EXTRACT_DIR && rm $FILE_NAME
+    rm -R $EXTRACT_DIR && rm $FILE_NAME
 }
 
 # 写入sing-box.service
